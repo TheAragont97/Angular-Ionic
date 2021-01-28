@@ -1,0 +1,8 @@
+<div class="card card-block">
+    <h4 class="card-title">{{this.joke.setup}}</h4>
+    <p class="card-text">{{this.joke.punchline}}</p>
+    <button type="button"
+    class="btn btn-warning"
+    (click)="this.jokeService.deleteJoke(this.joke)">Delete
+    </button>
+  </div> 

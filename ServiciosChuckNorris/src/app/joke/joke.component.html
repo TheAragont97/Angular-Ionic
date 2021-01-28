@@ -1,0 +1,9 @@
+<form [formGroup]="this.form">
+    <select formControlName="categoria" [(ngModel)]="opcionSeleccionada" (change)="capturarCategoria()">
+        <option *ngFor="let categoria of this.chuck.categorias">
+            {{categoria}}
+        </option>
+    </select>
+    <button type="button" (click)="metodoRecibirBroma()">Enviar</button>
+    <p> {{this.texto}}</p>
+</form>

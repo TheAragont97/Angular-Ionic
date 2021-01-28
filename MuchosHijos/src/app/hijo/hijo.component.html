@@ -1,0 +1,5 @@
+<div>
+    <p [ngClass]="{'cambio1': !this.colorPrimero, 'cambio2': this.colorSegundo}">{{this.text}}</p>
+    <button type="button" (click)="cambioColor1()">Cambio Color 1</button>
+    <button type="button" (click)="cambioColor2()">Cambio Color 2</button>
+</div>

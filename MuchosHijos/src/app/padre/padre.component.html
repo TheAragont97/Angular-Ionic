@@ -1,0 +1,8 @@
+<button type="button"
+    (click)="toggle()">
+        Mostrar/Ocultar
+</button>
+<div [hidden]="!this.hide">
+    <hijo *ngFor="let h of hijos" [hijo]="h">
+    </hijo>
+</div>
