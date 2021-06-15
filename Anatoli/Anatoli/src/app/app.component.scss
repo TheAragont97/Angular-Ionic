@@ -1,0 +1,17 @@
+*{
+    --background:rgb(18,116,222);
+}
+
+
+@media only screen and (min-width: 700px) {
+    .card-menu{
+        display: block;
+        width: 100%;
+    }
+    .card-menu img{
+        margin-left: 30%;
+    }
+    .contenido{
+        margin-left: 30%;
+    }
+}

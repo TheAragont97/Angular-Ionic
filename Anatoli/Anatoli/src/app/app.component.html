@@ -1,0 +1,31 @@
+<ion-app>
+    <ion-menu contentId="menu" menuId="menu" side="start" type="overlay" >
+      <ion-header >
+        <ion-toolbar class="cabecera">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="cabecera">
+        <ion-list class="cabecera">
+          <ion-item class="cabecera">
+            <ion-icon name="people-sharp"></ion-icon>
+            <ion-label>{{this?.usuario}}</ion-label>
+          </ion-item>
+          <ion-item class="cabecera">
+            <ion-icon name="home-outline"></ion-icon>
+            <ion-label [routerLink]="['/tabs']">Menu</ion-label>
+          </ion-item>
+          <ion-item class="cabecera">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-label [routerLink]="['/cita']">Lista Cita</ion-label>
+          </ion-item>
+          <ion-item class="cabecera">
+            <ion-icon name="exit-outline"></ion-icon>
+            <ion-label (click)="cerrarSesion()" [routerLink]="['/home']">Cerrar Sesion</ion-label>
+          </ion-item>
+          
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  <ion-router-outlet id="menu"></ion-router-outlet>
+</ion-app>

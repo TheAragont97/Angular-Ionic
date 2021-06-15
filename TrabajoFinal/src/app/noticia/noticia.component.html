@@ -1,9 +1,0 @@
-<div class="card card-block" [ngClass]="{si: !this.service.getEstado(), no: this.service.getEstado()}">
-    <h4 class="card-title">{{this.noticia.titulo}}</h4>
-    <p class="card-text">{{this.noticia.contenido}}</p>
-    <p class="card-text">{{this.noticia.fechaCreacion|date:'dd-MM-yyyy'}}</p>
-    <button type="button"
-    class="btn btn-warning"
-    (click)="this.service.deleteNoticia(this.noticia)">Delete
-    </button>
-  </div> 

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar class="cabecera">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cita Previa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="this.loginForm">
+    <ion-list>
+      <ion-item>
+        <ion-label class="labels">Fecha</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input min="{{this.todayTotal}}" class="inputs" type="date"  display-format="DD.MM.YYYY" (click)="this.fecha=!this.fecha" formControlName="inputFecha" #inputFecha></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="this.fecha">
+        <ion-label class="labels">Hora</ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="this.fecha">
+        <ion-input value="09:00" min="09:00" max="22:00" class="inputs" type="time" style="text-align: right;" formControlName="inputHora" #inputHora></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="labels">Corte</ion-label>
+        <ion-select  class="inputs" value="" okText="Aceptar" cancelText="Cancelar"  formControlName="valorCorte" #valorCorte>
+          <ion-select-option value="Corto">Corto</ion-select-option>
+          <ion-select-option value="Mediano">Mediano</ion-select-option>
+          <ion-select-option value="Largo">Largo</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label class="labels">Tintes</ion-label>
+        <ion-select class="inputs" placeholder="SI/NO" okText="Aceptar" cancelText="Cancelar" formControlName="valorTinte" #valorTinte>
+          <ion-select-option value="SI" >SI</ion-select-option>
+          <ion-select-option value="NO" >NO</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="labels">Peinado</ion-label>
+        <ion-select  class="inputs" placeholder="SI/NO" okText="Aceptar" cancelText="Cancelar" formControlName="valorPeinado" #valorPeinado>
+          <ion-select-option value="SI" >SI</ion-select-option>
+          <ion-select-option value="NO" >NO</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-button id="google" (click)="recargarDatos()"> <ion-icon name="arrow-down-circle-outline"></ion-icon> Guardar Datos</ion-button>
+      </ion-item>
+
+    </ion-list>
+  </form>
+  <!--Libreria Paypal-->
+  <ngx-paypal *ngIf="this.horaValidacion=='SI'" [config]="payPalConfig"></ngx-paypal>
+  
+
+  <ion-item>
+    <ion-button *ngIf="this.finalizado" id="iniciar" (click)="insertar()"> <ion-icon name="back-outline"></ion-icon> Finalizar Pago</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="this.horaValidacion=='NO'">
+    <ion-label color="danger">La hora insertada en la fecha elegida no es valida, por favor intente con otra hora en la misma fecha o en otra fecha diferente</ion-label>
+  </ion-item>
+  
+</ion-content>

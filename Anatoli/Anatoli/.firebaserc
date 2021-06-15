@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "anatoli-5aa45": {
+      "hosting": {
+        "app": [
+          "anatoli-5aa45"
+        ]
+      }
+    }
+  }
+}

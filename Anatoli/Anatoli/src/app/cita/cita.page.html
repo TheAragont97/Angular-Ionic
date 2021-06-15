@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar class="cabecera">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cita Previa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngIf="this.citaSioNo=='SI'">
+      <ion-label class="labels">Su cita es:</ion-label>
+      <br>
+      <ion-list style="list-style-type: none;">
+        <ion-item> Fecha: {{this.fecha}}</ion-item>
+        <ion-item>Hora: {{this.hora}}</ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item *ngIf="this.citaSioNo=='NO'">
+      <ion-label>No tiene cita</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="this.citaSioNo=='SI'">
+      <a href={{this.url}}>
+        <ion-img src="assets/images/googleCalendar.png"></ion-img>
+      </a>
+    </ion-item>
+
+    <ion-item *ngIf="this.citaSioNo=='SI'">
+      <ion-button id="google" (click)="delete()" > <ion-icon name="close-circle-outline"></ion-icon> Cancelar Cita</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-button id="iniciar"(click)="volver()"> <ion-icon name="chevron-back-outline"></ion-icon> Volver al Menú</ion-button>
+    </ion-item>
+  
+  </ion-list>
+</ion-content>

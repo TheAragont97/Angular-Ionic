@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="cabecera">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Elija Género</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-item>
+    <ion-card class="card-menu">
+      <a [routerLink]="['/menu-mujer']">
+        <ion-img src="assets/images/mujer.png">
+        </ion-img>
+      </a>
+    </ion-card>
+    <ion-card class="card-menu">
+      <a [routerLink]="['/menu-hombre']">
+        <ion-img src="assets/images/hombre.png">
+        </ion-img>
+      </a>
+    </ion-card>
+  </ion-item>
+</ion-content>

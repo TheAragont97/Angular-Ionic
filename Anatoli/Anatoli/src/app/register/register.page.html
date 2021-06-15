@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <form id="form-register" [formGroup]="this.loginForm" (ngSubmit)="registrar()">
+      <ion-item>
+        <ion-label class="labels">
+          Email
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input class="inputs" type="email" id="email" placeholder="Introduzca el email" formControlName="email" #email></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="labels">
+          Contraseña
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input class="inputs" [type]="passwordTypeInput" id="password"  placeholder="Introduzca la contraseña" formControlName="password" #password></ion-input>
+        <button  item-end  class="btn_eye_icon"  (click)="togglePasswordMode()">
+          <ion-icon  [name]="iconpassword"></ion-icon>
+      </button>
+      </ion-item>
+      <ion-item>
+        <ion-label class="labels">
+          Repita la Contraseña
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input class="inputs" [type]="passwordTypeInput2" id="password2"  placeholder="Repita la contraseña" formControlName="password2" #password2></ion-input>
+        <button  item-end  class="btn_eye_icon"  (click)="togglePasswordMode2()">
+          <ion-icon  [name]="iconpassword2"></ion-icon>
+      </button>
+      </ion-item>
+      <ion-item>
+        <ion-label class="labels">
+          Nombre
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input class="inputs" id="nombre"  placeholder="Introduzca su nombre completo" formControlName="nombre" #nombre></ion-input>
+      </ion-item>
+      <!--Zona de errores-->
+      <ion-row>
+        <ion-label color="danger"
+          *ngIf="this.loginForm.controls.email.errors?.required">El email no puede estar vacio</ion-label>
+        <ion-label color="danger"
+          *ngIf="this.loginForm.controls.email.errors?.email">Tiene que ser un email</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label color="danger"
+          *ngIf="this.loginForm.controls.password.errors?.required">La contraseña no puede estar vacia</ion-label>
+        <ion-label color="danger"
+        *ngIf="this.loginForm.controls.password.errors?.minlength">La contraseña tiene que tener al menos 8 carácteres</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label color="danger"
+          *ngIf="this.loginForm.controls.password2.errors?.required">La repetición de la contraseña no puede estar vacia</ion-label>
+        <ion-label color="danger"
+          *ngIf="this.loginForm.controls.password2.errors?.minlength">La repetición de la contraseña tiene que tener al menos 8 carácteres</ion-label>
+        <ion-label color="danger"
+          *ngIf="!this.igual_pass"> Las contraseñas tienen que ser iguales</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label color="danger"
+          *ngIf="this.loginForm.controls.nombre.errors?.required">El nombre no puede estar vacio</ion-label>
+      </ion-row>
+      <ion-item>
+        <ion-button id="iniciar" type="submit"><ion-icon name="push-outline"></ion-icon> Crear Cuenta</ion-button>
+        <ion-label class="enlace" style="text-align: right;">¿Tienes una cuenta? <a class="enlaceTotal" [routerLink]="['/home']">Inicia Sesión</a></ion-label>
+      </ion-item>
+    </form>
+    
+</ion-content>
